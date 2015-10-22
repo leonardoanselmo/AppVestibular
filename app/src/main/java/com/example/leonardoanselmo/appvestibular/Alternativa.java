@@ -17,7 +17,7 @@ public class Alternativa {
         return resposta;
     }
 
-    public boolean isRespostaCorreta() {
+    public boolean respostaCorreta() {
         return respostaCorreta;
     }
 
