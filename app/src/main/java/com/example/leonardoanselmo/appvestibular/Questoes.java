@@ -12,6 +12,9 @@ public class Questoes {
     private String enuciado;
     private List<Alternativa> alternativas;
 
+    public Questoes(String enuciado){
+        this.enuciado = enuciado;
+    }
     public Alternativa verificarAlternativaCorreta() {
         for (Alternativa alternativa : alternativas) {
             if (alternativa.respostaCorreta()){
@@ -22,4 +25,7 @@ public class Questoes {
         return null;
     }
 
+    public String toString(){
+        return enuciado;
+    }
 }
