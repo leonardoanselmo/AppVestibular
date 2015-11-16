@@ -25,17 +25,16 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         listView = (ListView) findViewById(R.id.listView);
-        questoes = new Questoes[1];
-        Questoes teste = new Questoes("Quanto é 2 + 2");
-        questoes[0] = teste;
+        questoes =  Questoes.getInstance().listaDeQuestoes();
 
         ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, questoes);
-
         listView.setAdapter(adapter);
+
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 intencao = new Intent(MainActivity.this, ActivityQuestaoSelecionada.class);
+                intencao.putExtra("enunciado", position);
                 startActivity(intencao);
             }
         });
