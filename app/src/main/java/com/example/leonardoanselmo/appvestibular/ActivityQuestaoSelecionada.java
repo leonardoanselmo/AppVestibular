@@ -8,8 +8,10 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -28,7 +30,13 @@ public class ActivityQuestaoSelecionada extends AppCompatActivity {
         setContentView(R.layout.tela_questao_selecionada);
 
         TextView textView = (TextView) findViewById(R.id.textView);
-        ListView listView = (ListView) findViewById(R.id.listView2);
+        RadioButton botao1 = (RadioButton) findViewById(R.id.radioButton);
+        RadioButton botao2 = (RadioButton) findViewById(R.id.radioButton2);
+        RadioButton botao3 = (RadioButton) findViewById(R.id.radioButton3);
+        RadioButton botao4 = (RadioButton) findViewById(R.id.radioButton4);
+        RadioButton botao5 = (RadioButton) findViewById(R.id.radioButton5);
+        Button resposta = (Button) findViewById(R.id.resposta);
+
         Intent intencao = getIntent();
         int indice = intencao.getIntExtra("enunciado", 0);
         questao = Questoes.getInstance().getLista();
@@ -36,12 +44,23 @@ public class ActivityQuestaoSelecionada extends AppCompatActivity {
         textView.setText(String.valueOf(enunciado));
 
         alternativas = Questoes.getInstance().getAlternativas();
-        ArrayAdapter adapter = new ArrayAdapter(ActivityQuestaoSelecionada.this, android.R.layout.simple_list_item_1, this.alternativas);
-        listView.setAdapter(adapter);
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        String alternativa1 = alternativas[0].getResposta();
+        String alternativa2 = alternativas[1].getResposta();
+        String alternativa3 = alternativas[2].getResposta();
+        String alternativa4 = alternativas[3].getResposta();
+        String alternativa5 = alternativas[4].getResposta();
+
+        botao1.setText(String.valueOf(alternativa1));
+        botao2.setText(String.valueOf(alternativa2));
+        botao3.setText(String.valueOf(alternativa3));
+        botao4.setText(String.valueOf(alternativa4));
+        botao5.setText(String.valueOf(alternativa5));
+
+        resposta.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Toast.makeText(ActivityQuestaoSelecionada.this, "Resposta Certa: B", Toast.LENGTH_LONG).show();
+            public void onClick(View v) {
+                Alternativa correta = Questoes.getInstance().verificarAlternativaCorreta();
+                Toast.makeText(ActivityQuestaoSelecionada.this, correta.getResposta() , Toast.LENGTH_LONG).show();
             }
         });
     }

@@ -9,8 +9,8 @@ import java.util.List;
 
 
 public class Questoes {
-    private static Questoes myself = null;
-    private Questoes[] lista;
+    private static Questoes myself = null;;
+    private static Questoes[] lista;
 
     private String enuciado;
     private Alternativa[] alternativas;
@@ -38,7 +38,7 @@ public class Questoes {
         return enuciado;
     }
 
-    public Questoes[] listaDeQuestoes(){
+    public static Questoes[] listaDeQuestoes(){
         lista = new Questoes[1];
         Questoes questoes = new Questoes();
 
@@ -81,6 +81,7 @@ public class Questoes {
     }
 
     public Questoes[] getLista() {
+        this.lista = listaDeQuestoes();
         return lista;
     }
 
