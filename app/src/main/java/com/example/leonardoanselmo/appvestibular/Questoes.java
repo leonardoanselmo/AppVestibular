@@ -13,7 +13,7 @@ public class Questoes {
     private static Questoes[] lista;
 
     private String enuciado;
-    private Alternativa[] alternativas;
+    private static Alternativa[] alternativas;
 
     private Questoes(){
     }
@@ -46,19 +46,19 @@ public class Questoes {
                 "a exploração de recursos naturais, adotou-se, \n" +
                 "em escala internacional, a política dos três erres: Redução, Reutilização e Reciclagem. Um exemplo de reciclagem é a" +
                 " utilização de:");
-        Alternativa[] listaAlternativas = new Alternativa[5];
+        alternativas = new Alternativa[5];
         Alternativa alternativa1 = new Alternativa("A- garrafas de vidro retornáveis para cerveja ou refrigerante.",false);
         Alternativa alternativa2 = new Alternativa("B- latas de alumínio como material para fabricação de lingotes.",true);
         Alternativa alternativa3 = new Alternativa("C- sacos plásticos de supermercado como acondicionantes de lixo caseiro.",false);
         Alternativa alternativa4 = new Alternativa("D- embalagens plásticas vazias e limpas para acondicionar outros alimentos.",false);
         Alternativa alternativa5 = new Alternativa("E- garrafas PET recortadas em tiras para fabricação de cerdas de vassouras.",false);
-        listaAlternativas[0] = alternativa1;
-        listaAlternativas[1] = alternativa2;
-        listaAlternativas[2] = alternativa3;
-        listaAlternativas[3] = alternativa4;
-        listaAlternativas[4] = alternativa5;
+        alternativas[0] = alternativa1;
+        alternativas[1] = alternativa2;
+        alternativas[2] = alternativa3;
+        alternativas[3] = alternativa4;
+        alternativas[4] = alternativa5;
 
-        questoes.setAlternativas(listaAlternativas);
+        questoes.setAlternativas(alternativas);
 
         lista[0] = questoes;
         return lista;
