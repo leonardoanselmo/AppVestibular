@@ -88,4 +88,11 @@ public class Questoes {
     public void setLista(Questoes[] lista) {
         this.lista = lista;
     }
+
+    public String diminuirEnuciado(){
+        String enuciadoMenor;
+
+        enuciadoMenor = this.enuciado;
+        return enuciadoMenor.substring(0,50);
+    }
 }

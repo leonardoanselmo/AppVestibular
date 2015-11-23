@@ -17,6 +17,7 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity {
     private ListView listView;
     private Questoes[] questoes;
+    private String[] enunciados;
     private Intent intencao;
 
     @Override
@@ -26,8 +27,13 @@ public class MainActivity extends AppCompatActivity {
 
         listView = (ListView) findViewById(R.id.listView);
         questoes =  Questoes.getInstance().listaDeQuestoes();
+        enunciados = new String[questoes.length];
 
-        ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, questoes);
+        for (int i = 0; i < questoes.length; i++){
+            enunciados[i] = questoes[i].diminuirEnuciado();
+        }
+
+        ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, enunciados);
         listView.setAdapter(adapter);
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
