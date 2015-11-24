@@ -8,6 +8,10 @@ import com.example.leonardoanselmo.appvestibular.Questoes;
 public class Biologia {
     private Questoes[] questoesBiologia;
 
+    public Biologia(Questoes[] questoesBiologia) {
+        this.questoesBiologia = questoesBiologia;
+    }
+
     public Questoes[] getQuestoesBiologia() {
         return questoesBiologia;
     }
