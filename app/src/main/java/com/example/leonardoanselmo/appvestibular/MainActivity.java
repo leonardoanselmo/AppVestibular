@@ -27,9 +27,10 @@ public class MainActivity extends AppCompatActivity {
 
         listView = (ListView) findViewById(R.id.listView);
         questoes =  Questoes.getInstance().listaDeQuestoes();
-        enunciados = new String[questoes.length];
+        int tamanho = questoes.length;
+        enunciados = new String[tamanho];
 
-        for (int i = 0; i < questoes.length; i++){
+        for (int i = 0; i < tamanho; i++){
             enunciados[i] = questoes[i].diminuirEnuciado();
         }
 

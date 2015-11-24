@@ -93,6 +93,6 @@ public class Questoes {
         String enuciadoMenor;
 
         enuciadoMenor = this.enuciado;
-        return enuciadoMenor.substring(0,50);
+        return enuciadoMenor.substring(0,150) + "...";
     }
 }
