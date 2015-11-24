@@ -11,11 +11,19 @@ import java.util.List;
 public class Questoes {
     private static Questoes myself = null;;
     private static Questoes[] lista;
-
     private String enuciado;
     private static Alternativa[] alternativas;
+    private String resolucao;
 
     private Questoes(){
+    }
+
+    public String getResolucao() {
+        return resolucao;
+    }
+
+    public void setResolucao(String resolucao) {
+        this.resolucao = resolucao;
     }
 
     public static Questoes getInstance(){
