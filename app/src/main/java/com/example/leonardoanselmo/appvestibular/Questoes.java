@@ -1,5 +1,7 @@
 package com.example.leonardoanselmo.appvestibular;
 
+import com.orm.SugarRecord;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -8,12 +10,13 @@ import java.util.List;
  */
 
 
-public class Questoes {
+public class Questoes extends SugarRecord<Questoes> {
     private static Questoes myself = null;;
     private static Questoes[] lista;
     private String enuciado;
     private static Alternativa[] alternativas;
     private String resolucao;
+    private int status;
 
     private Questoes(){
     }
@@ -102,5 +105,13 @@ public class Questoes {
 
         enuciadoMenor = this.enuciado;
         return enuciadoMenor.substring(0,150) + "...";
+    }
+
+    public int getStatus() {
+        return status;
+    }
+
+    public void setStatus(int status) {
+        this.status = status;
     }
 }
