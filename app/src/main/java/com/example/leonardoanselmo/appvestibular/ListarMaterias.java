@@ -15,7 +15,8 @@ import android.widget.ListView;
  */
 public class ListarMaterias extends AppCompatActivity {
     private ListView listView;
-    private String[] disciplinas;
+    private Disciplina[] disciplinas;
+    private String[] nomes;
     private  Intent intencao;
 
     @Override
@@ -25,7 +26,14 @@ public class ListarMaterias extends AppCompatActivity {
 
         listView = (ListView) findViewById(R.id.listView);
         // disciplinas= Disciplina .getInstance().listaDeQuestoes();
-        disciplinas = new String[]{"Português", "Matemática", "Biologia"};
+        disciplinas =  Disciplina.getInstance().listaDeNomes();
+        int tamanho = disciplinas.length;
+       nomes = new String[tamanho];
+
+        for (int i = 0; i < tamanho; i++){
+            nomes[i] =disciplinas[i].getNome();
+        }
+        disciplinas = new Disciplina[0];
 
         ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, disciplinas);
         listView.setAdapter(adapter);

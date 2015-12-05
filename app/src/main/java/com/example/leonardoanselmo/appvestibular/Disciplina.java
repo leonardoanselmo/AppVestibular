@@ -5,11 +5,23 @@ package com.example.leonardoanselmo.appvestibular;
  */
 public class Disciplina {
     private Questoes[] questoes;
+    private static Disciplina[] lista;
     private String nome;
+    private static Disciplina myself = null;
+
+    public static Disciplina getInstance(){
+        if (myself == null){
+            myself = new Disciplina();
+        }
+        return myself;
+    }
 
     public Disciplina(Questoes[] questoes, String nome){
         this.questoes = questoes;
         this.nome = nome;
+    }
+
+    private Disciplina() {
     }
 
     public Questoes[] getQuestoes() {
@@ -26,6 +38,18 @@ public class Disciplina {
 
     public void setNome(String nome) {
         this.nome = nome;
+    }
+
+
+    public static Disciplina[] listaDeNomes(){
+        lista = new Disciplina[1];
+
+
+        Disciplina disciplina = new Disciplina();
+        disciplina.setNome("Matematica");
+        disciplina.setNome("Português");
+        lista[0] = disciplina;
+        return lista;
     }
 }
 
