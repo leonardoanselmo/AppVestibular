@@ -17,6 +17,7 @@ public class Questoes extends SugarRecord<Questoes> {
     private static Alternativa[] alternativas;
     private String resolucao;
     private int status;
+    private Disciplina disciplina;
 
     private Questoes(){
     }

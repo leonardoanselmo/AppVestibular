@@ -24,18 +24,15 @@ public class ListarMaterias extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.listarmaterias);
 
-        listView = (ListView) findViewById(R.id.listView);
-        // disciplinas= Disciplina .getInstance().listaDeQuestoes();
-        disciplinas =  Disciplina.getInstance().listaDeNomes();
-        int tamanho = disciplinas.length;
-       nomes = new String[tamanho];
+        listView = (ListView) findViewById(R.id.listView2);
+        disciplinas =  Disciplina.listaDeNomes();
+        nomes = new String[10];
 
-        for (int i = 0; i < tamanho; i++){
-            nomes[i] =disciplinas[i].getNome();
+        for (int i = 0; i < 10; i++) {
+            nomes[i] = disciplinas[i].getNome();
         }
-        disciplinas = new Disciplina[0];
 
-        ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, disciplinas);
+        ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, nomes);
         listView.setAdapter(adapter);
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
