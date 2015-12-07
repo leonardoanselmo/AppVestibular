@@ -4,14 +4,19 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme" >
+        android:theme="@style/AppTheme"
+        android:name = "com.orm.SugarApp"
+        >
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar" >
+
+        </activity>
+        <activity android:name=".ListarMaterias">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -21,6 +26,10 @@
         <activity
             android:name=".ActivityQuestaoSelecionada"
             android:label="@string/app_name"/>
+        <meta-data android:name="DATABASE" android:value="vestibular.bd" />
+        <meta-data android:name="VERSION" android:value="2" />
+        <meta-data android:name="QUERY_LOG" android:value="true" />
+        <meta-data android:name="DOMAIN_PACKAGE_NAME" android:value="com.vestibular"/>
     </application>
 
 </manifest>
