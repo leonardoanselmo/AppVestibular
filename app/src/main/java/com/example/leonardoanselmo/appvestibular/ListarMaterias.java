@@ -26,9 +26,9 @@ public class ListarMaterias extends AppCompatActivity {
 
         listView = (ListView) findViewById(R.id.listView2);
         disciplinas =  Disciplina.listaDeNomes();
-        nomes = new String[10];
+        nomes = new String[12];
 
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < 12; i++) {
             nomes[i] = disciplinas[i].getNome();
         }
 
