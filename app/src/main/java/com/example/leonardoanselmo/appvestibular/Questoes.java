@@ -55,7 +55,7 @@ public class Questoes extends SugarRecord<Questoes> {
         Questoes questoes = new Questoes();
 
         questoes.setEnuciado("1-Para diminuir o acúmulo de lixo e o desperdício de materiais de valor econômico e, assim, reduzir " +
-                "a exploração de recursos naturais, adotou-se, \n" +
+                "a exploração de recursos naturais, adotou-se, " +
                 "em escala internacional, a política dos três erres: Redução, Reutilização e Reciclagem. Um exemplo de reciclagem é a" +
                 " utilização de:");
         alternativas = new Alternativa[5];
@@ -71,7 +71,12 @@ public class Questoes extends SugarRecord<Questoes> {
         alternativas[4] = alternativa5;
 
         questoes.setAlternativas(alternativas);
-
+        questoes.setResolucao("As latas de alumínio podem ser submetidas ao processo inicial da formação do lingote de alumínio e,\n" +
+                " com isso ser reutilizada entrar em um novo ciclo (reciclagem) para a confecção de novos materiais de alumínio e \n" +
+                "não simplesmente ser material reutilizado como nas outras opções. preservando assim a matéria prima bruta e o \n" +
+                "meio ambiente.\n" +
+                "RESPOSTA CORRETA:\n" +
+                "B ");
         lista[0] = questoes;
         return lista;
     }

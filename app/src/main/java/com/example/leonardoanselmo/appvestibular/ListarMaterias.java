@@ -38,7 +38,7 @@ public class ListarMaterias extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                intencao = new Intent(ListarMaterias.this, Disciplina.class);
+                intencao = new Intent(ListarMaterias.this, MainActivity.class);
                 intencao.putExtra("disciplinas", position);
                 startActivity(intencao);
             }
