@@ -29,7 +29,7 @@ public class Disciplina {
 
 
     public static Disciplina[] listaDeNomes(){
-        lista = new Disciplina[10];
+        lista = new Disciplina[12];
         Disciplina d1 = new Disciplina();
         Disciplina d2 = new Disciplina();
         Disciplina d3 = new Disciplina();
@@ -40,6 +40,8 @@ public class Disciplina {
         Disciplina d8 = new Disciplina();
         Disciplina d9 = new Disciplina();
         Disciplina d10 = new Disciplina();
+        Disciplina d11 = new Disciplina();
+        Disciplina d12 = new Disciplina();
         d1.setNome("Portugues");
         lista[0] = d1;
         d2.setNome("Matematica");
@@ -60,6 +62,10 @@ public class Disciplina {
         lista[8] = d9;
         d10.setNome("Ingles");
         lista[9] = d10;
+        d11.setNome("Espanhol");
+        lista[10]=d11;
+        d12.setNome("Atualidades");
+        lista[11]=d12;
         return lista;
     }
 }
