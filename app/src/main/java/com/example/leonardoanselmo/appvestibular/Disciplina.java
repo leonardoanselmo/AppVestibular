@@ -1,21 +1,24 @@
 package com.example.leonardoanselmo.appvestibular;
 
+import com.orm.SugarApp;
+import com.orm.SugarRecord;
+
 /**
  * Created by Jackson Carvalho on 30/11/2015.
  */
-public class Disciplina {
-    private Questoes[] questoes;
+public class Disciplina extends SugarRecord<Disciplina> {
+    private Questao[] questoes;
     private static Disciplina[] lista;
     private String nome;
 
     public Disciplina() {
     }
 
-    public Questoes[] getQuestoes() {
+    public Questao[] getQuestoes() {
         return questoes;
     }
 
-    public void setQuestoes(Questoes[] questoes) {
+    public void setQuestoes(Questao[] questoes) {
         this.questoes = questoes;
     }
 

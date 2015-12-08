@@ -6,23 +6,21 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.EditText;
-import android.widget.ListView;
 import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.List;
 
+import static com.example.leonardoanselmo.appvestibular.Questao.*;
+
 /**
  * Created by everton on 10/11/2015.
  */
 public class ActivityQuestaoSelecionada extends AppCompatActivity {
     private Alternativa[] alternativas;
-    private Questoes[] questao;
+    private List<Questao> questoes;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,11 +37,11 @@ public class ActivityQuestaoSelecionada extends AppCompatActivity {
 
         Intent intencao = getIntent();
         int indice = intencao.getIntExtra("enunciado", 0);
-        questao = Questoes.getInstance().getLista();
-        String enunciado = questao[indice].getEnuciado();
+        questoes = getLista();
+        String enunciado = questoes.get(indice).getEnuciado();
         textView.setText(String.valueOf(enunciado));
 
-        alternativas = Questoes.getInstance().getAlternativas();
+        alternativas = getAlternativas();
         String alternativa1 = alternativas[0].getResposta();
         String alternativa2 = alternativas[1].getResposta();
         String alternativa3 = alternativas[2].getResposta();
@@ -59,7 +57,7 @@ public class ActivityQuestaoSelecionada extends AppCompatActivity {
         resposta.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Alternativa correta = Questoes.getInstance().verificarAlternativaCorreta();
+                Alternativa correta = Questao.verificarAlternativaCorreta();
                 Toast.makeText(ActivityQuestaoSelecionada.this, correta.getResposta() , Toast.LENGTH_LONG).show();
             }
         });
@@ -70,7 +68,6 @@ public class ActivityQuestaoSelecionada extends AppCompatActivity {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
-
     }
 
     @Override

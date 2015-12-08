@@ -1,9 +1,11 @@
 package com.example.leonardoanselmo.appvestibular;
 
+import com.orm.SugarRecord;
+
 /**
  * Created by leonardoanselmo on 21/10/15.
  */
-public class Alternativa {
+public class Alternativa extends SugarRecord<Alternativa> {
 
     private String resposta;
     private boolean respostaCorreta;

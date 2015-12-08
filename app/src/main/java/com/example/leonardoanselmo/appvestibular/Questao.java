@@ -10,16 +10,15 @@ import java.util.List;
  */
 
 
-public class Questoes extends SugarRecord<Questoes> {
-    private static Questoes myself = null;;
-    private static Questoes[] lista;
+public class Questao extends SugarRecord<Questao> {
+    private static List<Questao> lista;
     private String enuciado;
     private static Alternativa[] alternativas;
     private String resolucao;
     private int status;
-    private Disciplina disciplina;
+    //private Disciplina disciplina;
 
-    private Questoes(){
+    public Questao(){
     }
 
     public String getResolucao() {
@@ -30,13 +29,7 @@ public class Questoes extends SugarRecord<Questoes> {
         this.resolucao = resolucao;
     }
 
-    public static Questoes getInstance(){
-        if (myself == null)
-            myself = new Questoes();
-
-        return myself;
-    }
-    public Alternativa verificarAlternativaCorreta() {
+    public static Alternativa verificarAlternativaCorreta() {
         for (Alternativa alternativa : alternativas) {
             if (alternativa.respostaCorreta()){
                 return alternativa;
@@ -50,11 +43,18 @@ public class Questoes extends SugarRecord<Questoes> {
         return enuciado;
     }
 
-    public static Questoes[] listaDeQuestoes(){
-        lista = new Questoes[1];
-        Questoes questoes = new Questoes();
+    public static List<Questao> listaDeQuestoes(){
+        adicionarQuestoes();
+        Questao questao = new Questao();
+        lista = new ArrayList<>();
+        lista = questao.listAll(Questao.class);
+        return lista;
+    }
 
-        questoes.setEnuciado("1-Para diminuir o acúmulo de lixo e o desperdício de materiais de valor econômico e, assim, reduzir " +
+    public static void adicionarQuestoes(){
+        Questao questao = new Questao();
+
+        questao.setEnuciado("1-Para diminuir o acúmulo de lixo e o desperdício de materiais de valor econômico e, assim, reduzir " +
                 "a exploração de recursos naturais, adotou-se, " +
                 "em escala internacional, a política dos três erres: Redução, Reutilização e Reciclagem. Um exemplo de reciclagem é a" +
                 " utilização de:");
@@ -70,15 +70,15 @@ public class Questoes extends SugarRecord<Questoes> {
         alternativas[3] = alternativa4;
         alternativas[4] = alternativa5;
 
-        questoes.setAlternativas(alternativas);
-        questoes.setResolucao("As latas de alumínio podem ser submetidas ao processo inicial da formação do lingote de alumínio e,\n" +
+        questao.setAlternativas(alternativas);
+        questao.setResolucao("As latas de alumínio podem ser submetidas ao processo inicial da formação do lingote de alumínio e,\n" +
                 " com isso ser reutilizada entrar em um novo ciclo (reciclagem) para a confecção de novos materiais de alumínio e \n" +
                 "não simplesmente ser material reutilizado como nas outras opções. preservando assim a matéria prima bruta e o \n" +
                 "meio ambiente.\n" +
                 "RESPOSTA CORRETA:\n" +
                 "B ");
-        lista[0] = questoes;
-        return lista;
+        questao.setStatus(0);
+        questao.save();
     }
 
     public String getEnuciado() {
@@ -89,7 +89,7 @@ public class Questoes extends SugarRecord<Questoes> {
         this.enuciado = enuciado;
     }
 
-    public Alternativa[] getAlternativas() {
+    public static Alternativa[] getAlternativas() {
         return alternativas;
     }
 
@@ -97,12 +97,12 @@ public class Questoes extends SugarRecord<Questoes> {
         this.alternativas = alternativas;
     }
 
-    public Questoes[] getLista() {
-        this.lista = listaDeQuestoes();
+    public static List<Questao> getLista() {
+        lista = listaDeQuestoes();
         return lista;
     }
 
-    public void setLista(Questoes[] lista) {
+    public void setLista(List<Questao> lista) {
         this.lista = lista;
     }
 
