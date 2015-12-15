@@ -31,4 +31,7 @@ public class Alternativa extends SugarRecord<Alternativa> {
         this.respostaCorreta = respostaCorreta;
     }
 
+    public boolean isRespostaCorreta() {
+        return respostaCorreta;
+    }
 }
