@@ -20,7 +20,12 @@ import static com.example.leonardoanselmo.appvestibular.Questao.*;
  */
 public class ActivityQuestaoSelecionada extends AppCompatActivity {
     private Alternativa[] alternativas;
+
+    private Questoes[] questao;
+    private Intent intencao;
+
     private List<Questao> questoes;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,10 +40,17 @@ public class ActivityQuestaoSelecionada extends AppCompatActivity {
         RadioButton botao5 = (RadioButton) findViewById(R.id.radioButton5);
         Button resposta = (Button) findViewById(R.id.resposta);
 
+
+        intencao = getIntent();
+        final int indice = intencao.getIntExtra("enunciado", 0);
+        questao = Questoes.getInstance().getLista();
+        String enunciado = questao[indice].getEnuciado();
+
         Intent intencao = getIntent();
         int indice = intencao.getIntExtra("enunciado", 0);
         questoes = getLista();
         String enunciado = questoes.get(indice).getEnuciado();
+
         textView.setText(String.valueOf(enunciado));
 
         alternativas = getAlternativas();
@@ -57,8 +69,16 @@ public class ActivityQuestaoSelecionada extends AppCompatActivity {
         resposta.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                Alternativa correta = Questoes.getInstance().verificarAlternativaCorreta();
+               /* Toast.makeText(ActivityQuestaoSelecionada.this, correta.getResposta() , Toast.LENGTH_LONG).show();*/
+                intencao = new Intent(ActivityQuestaoSelecionada.this, Resolucao.class);
+               intencao.putExtra("Resolucao",questao[indice].getResolucao());
+                startActivity(intencao);
+
                 Alternativa correta = Questao.verificarAlternativaCorreta();
                 Toast.makeText(ActivityQuestaoSelecionada.this, correta.getResposta() , Toast.LENGTH_LONG).show();
+
             }
         });
     }
