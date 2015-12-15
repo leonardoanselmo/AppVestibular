@@ -44,7 +44,6 @@ public class Questao extends SugarRecord<Questao> {
     }
 
     public static List<Questao> listaDeQuestoes(){
-        adicionarQuestoes();
         Questao questao = new Questao();
         lista = new ArrayList<>();
         lista = questao.listAll(Questao.class);

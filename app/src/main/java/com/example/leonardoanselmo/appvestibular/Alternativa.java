@@ -10,7 +10,10 @@ public class Alternativa extends SugarRecord<Alternativa> {
     private String resposta;
     private boolean respostaCorreta;
 
-    public Alternativa(String resposta, boolean respostaCorreta){
+    public Alternativa(){
+    }
+
+    public Alternativa(String resposta, boolean respostaCorreta) {
         this.resposta = resposta;
         this.respostaCorreta = respostaCorreta;
     }

@@ -21,9 +21,8 @@ import static com.example.leonardoanselmo.appvestibular.Questao.*;
 public class ActivityQuestaoSelecionada extends AppCompatActivity {
     private Alternativa[] alternativas;
 
-    private Questoes[] questao;
+    private List<Questao> questao;
     private Intent intencao;
-
     private List<Questao> questoes;
 
 
@@ -40,20 +39,14 @@ public class ActivityQuestaoSelecionada extends AppCompatActivity {
         RadioButton botao5 = (RadioButton) findViewById(R.id.radioButton5);
         Button resposta = (Button) findViewById(R.id.resposta);
 
-
         intencao = getIntent();
         final int indice = intencao.getIntExtra("enunciado", 0);
-        questao = Questoes.getInstance().getLista();
-        String enunciado = questao[indice].getEnuciado();
-
-        Intent intencao = getIntent();
-        int indice = intencao.getIntExtra("enunciado", 0);
-        questoes = getLista();
-        String enunciado = questoes.get(indice).getEnuciado();
+        questao = Questao.getLista();
+        String enunciado = questao.get(indice).getEnuciado();
 
         textView.setText(String.valueOf(enunciado));
 
-        alternativas = getAlternativas();
+        alternativas = Questao.getAlternativas();
         String alternativa1 = alternativas[0].getResposta();
         String alternativa2 = alternativas[1].getResposta();
         String alternativa3 = alternativas[2].getResposta();
@@ -70,13 +63,14 @@ public class ActivityQuestaoSelecionada extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Alternativa correta = Questoes.getInstance().verificarAlternativaCorreta();
+                Alternativa correta = Questao.verificarAlternativaCorreta();
                /* Toast.makeText(ActivityQuestaoSelecionada.this, correta.getResposta() , Toast.LENGTH_LONG).show();*/
                 intencao = new Intent(ActivityQuestaoSelecionada.this, Resolucao.class);
-               intencao.putExtra("Resolucao",questao[indice].getResolucao());
+                String resolucao =  questao.get(indice).getResolucao();
+                intencao.putExtra("Resolucao",resolucao);
                 startActivity(intencao);
 
-                Alternativa correta = Questao.verificarAlternativaCorreta();
+                correta = Questao.verificarAlternativaCorreta();
                 Toast.makeText(ActivityQuestaoSelecionada.this, correta.getResposta() , Toast.LENGTH_LONG).show();
 
             }
