@@ -15,7 +15,7 @@ public class Questao extends SugarRecord<Questao> {
     private String enuciado;
     private static Alternativa[] alternativas;
     private String resolucao;
-    private int status;
+    private static int status;
     //private Disciplina disciplina;
 
     public Questao(){
@@ -32,6 +32,10 @@ public class Questao extends SugarRecord<Questao> {
     public static Alternativa verificarAlternativaCorreta() {
         for (Alternativa alternativa : alternativas) {
             if (alternativa.respostaCorreta()){
+                status = 1;
+                return alternativa;
+            }else{
+                status = 2;
                 return alternativa;
             }
         }
