@@ -71,7 +71,7 @@ public class ActivityQuestaoSelecionada extends AppCompatActivity {
                 startActivity(intencao);
 
                 correta = Questao.verificarAlternativaCorreta();
-                Toast.makeText(ActivityQuestaoSelecionada.this, correta.getResposta() , Toast.LENGTH_LONG).show();
+              //  Toast.makeText(ActivityQuestaoSelecionada.this, correta.getResposta() , Toast.LENGTH_LONG).show();
 
             }
         });
