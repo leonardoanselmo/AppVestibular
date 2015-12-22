@@ -38,12 +38,13 @@ public class ActivityQuestaoSelecionada extends AppCompatActivity {
 
         intencao = getIntent();
         indice = intencao.getIntExtra("enunciado", 0);
-        questao = Questao.getLista();
-        String enunciado = questao.get(indice).getEnuciado();
+        questoes = Questao.getLista();
+        final Questao questao = questoes.get(indice);
+        final String enunciado = questao.getEnuciado();
 
         textView.setText(String.valueOf(enunciado));
 
-        alternativas = questao.get(indice).getAlternativas();
+        alternativas = questao.getAlternativas();
         String alternativa1 = alternativas[0].getResposta();
         String alternativa2 = alternativas[1].getResposta();
         String alternativa3 = alternativas[2].getResposta();
@@ -61,9 +62,13 @@ public class ActivityQuestaoSelecionada extends AppCompatActivity {
             public void onClick(View v) {
                 Alternativa correta = Questao.verificarAlternativaCorreta();
                /* Toast.makeText(ActivityQuestaoSelecionada.this, correta.getResposta() , Toast.LENGTH_LONG).show();*/
+                if(correta.respostaCorreta() == true){
+                    questao.setStatus(1);
+                }else{
+                    questao.setStatus(2);
+                }
                 intencao = new Intent(ActivityQuestaoSelecionada.this, ActivityResolucao.class);
-
-                String resolucao =  questao.get(indice).getResolucao();
+                String resolucao =  questao.getResolucao();
                 intencao.putExtra("ActivityResolucao",resolucao);
                 startActivity(intencao);
             }
