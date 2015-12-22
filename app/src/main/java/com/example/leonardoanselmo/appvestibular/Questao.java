@@ -120,7 +120,7 @@ public class Questao extends SugarRecord<Questao> {
         return enuciadoMenor.substring(0,150) + "...";
     }
 
-    public static int getStatus() {
+    public int getStatus() {
         return status;
     }
 

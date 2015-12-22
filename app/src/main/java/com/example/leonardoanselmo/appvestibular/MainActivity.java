@@ -16,7 +16,6 @@ public class MainActivity extends AppCompatActivity {
     private Questao questao;
     private ListView listView;
     private List<Questao> questoes;
-    private String[] enunciados;
     private Intent intencao;
 
     @Override
@@ -26,15 +25,10 @@ public class MainActivity extends AppCompatActivity {
 
         questao = new Questao();
         listView = (ListView) findViewById(R.id.listView);
-        questoes =  questao.listaDeQuestoes();
-        int tamanho = questoes.size();
-        enunciados = new String[tamanho];
+        questoes = questao.listaDeQuestoes();
 
-        for (int i = 0; i < tamanho; i++){
-            enunciados[i] = questoes.get(i).diminuirEnuciado();
-        }
+        MeuAdapter adapter = new ArrayAdapter(this, questoes);
 
-        ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, enunciados);
         listView.setAdapter(adapter);
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
