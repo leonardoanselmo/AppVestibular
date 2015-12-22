@@ -1,5 +1,6 @@
 package com.example.leonardoanselmo.appvestibular;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -11,39 +12,21 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 /**
- * Created by Jackson Carvalho on 30/11/2015.
+ * Created by Jackson Carvalho on 07/12/2015.
  */
-public class ListarMaterias extends AppCompatActivity {
+public class ActivityRendimento extends AppCompatActivity {
     private ListView listView;
-    private Disciplina[] disciplinas;
-    private String[] nomes;
+    private String [] rendimento;
     private  Intent intencao;
 
+    @SuppressLint("WrongViewCast")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.listarmaterias);
+        setContentView(R.layout.rendimento);
 
-        listView = (ListView) findViewById(R.id.listView2);
-        disciplinas =  Disciplina.listaDeNomes();
-        nomes = new String[12];
-
-        for (int i = 0; i < 12; i++) {
-            nomes[i] = disciplinas[i].getNome();
-        }
-
-        ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, nomes);
-        listView.setAdapter(adapter);
-
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                intencao = new Intent(ListarMaterias.this, MainActivity.class);
-                intencao.putExtra("disciplinas", position);
-                startActivity(intencao);
-            }
-        });
-    }
+        listView = (ListView) findViewById(R.id.textView3);
+}
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -67,5 +50,6 @@ public class ListarMaterias extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 }
+
 
 

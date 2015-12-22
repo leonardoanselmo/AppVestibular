@@ -2,7 +2,7 @@ package com.example.leonardoanselmo.appvestibular;
 
 import com.orm.SugarApp;
 import com.orm.SugarRecord;
-
+import  com.example.leonardoanselmo.appvestibular.Questao.*;
 /**
  * Created by Jackson Carvalho on 30/11/2015.
  */
@@ -70,6 +70,19 @@ public class Disciplina extends SugarRecord<Disciplina> {
         d12.setNome("Atualidades");
         lista[11]=d12;
         return lista;
+    }
+    public static double CalcularRendimento(){
+        double questoesCertas=0;
+        double questoesErradas=0;
+        double totaldequestoes=0;
+        double rendimento=0;
+        if(Questao.getStatus()==1){
+            questoesCertas += 1;
+        }else{
+            questoesErradas+=1;
+        }
+        totaldequestoes = questoesCertas+questoesErradas;
+       return rendimento=(questoesCertas/totaldequestoes)*100;
     }
 }
 

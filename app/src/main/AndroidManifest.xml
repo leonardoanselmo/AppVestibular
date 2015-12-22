@@ -16,18 +16,18 @@
             android:theme="@style/AppTheme.NoActionBar" >
 
         </activity>
-        <activity android:name=".Tela_inicial">
+        <activity android:name=".ActivityTela_inicial">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ListarMaterias">
+        <activity android:name=".ActivityListarMaterias">
 
         </activity>
 
-        <activity android:name=".Rendimento">
+        <activity android:name=".ActivityRendimento">
 
         </activity>
 
