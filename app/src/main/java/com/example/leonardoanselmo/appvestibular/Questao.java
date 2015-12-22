@@ -19,6 +19,7 @@ public class Questao extends SugarRecord<Questao> {
     //private Disciplina disciplina;
 
     public Questao(){
+        super();
     }
 
     public String getResolucao() {
@@ -47,10 +48,8 @@ public class Questao extends SugarRecord<Questao> {
         return enuciado;
     }
 
-    public static List<Questao> listaDeQuestoes(){
-        Questao questao = new Questao();
-        lista = new ArrayList<>();
-        lista = questao.listAll(Questao.class);
+    public List<Questao> listaDeQuestoes(){
+        lista = Questao.listAll(Questao.class);
         return lista;
     }
 
@@ -72,6 +71,12 @@ public class Questao extends SugarRecord<Questao> {
         alternativas[2] = alternativa3;
         alternativas[3] = alternativa4;
         alternativas[4] = alternativa5;
+
+        alternativa1.save();
+        alternativa2.save();
+        alternativa3.save();
+        alternativa4.save();
+        alternativa5.save();
 
         questao.setAlternativas(alternativas);
         questao.setResolucao("As latas de alumínio podem ser submetidas ao processo inicial da formação do lingote de alumínio e,\n" +
@@ -101,7 +106,6 @@ public class Questao extends SugarRecord<Questao> {
     }
 
     public static List<Questao> getLista() {
-        lista = listaDeQuestoes();
         return lista;
     }
 

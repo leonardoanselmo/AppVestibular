@@ -13,6 +13,7 @@ import android.widget.ListView;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
+    private Questao questao;
     private ListView listView;
     private List<Questao> questoes;
     private String[] enunciados;
@@ -23,8 +24,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        questao = new Questao();
         listView = (ListView) findViewById(R.id.listView);
-        questoes =  Questao.listaDeQuestoes();
+        questoes =  questao.listaDeQuestoes();
         int tamanho = questoes.size();
         enunciados = new String[tamanho];
 
