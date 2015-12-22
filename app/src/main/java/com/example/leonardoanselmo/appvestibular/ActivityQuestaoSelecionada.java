@@ -59,27 +59,13 @@ public class ActivityQuestaoSelecionada extends AppCompatActivity {
         resposta.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-<<<<<<< HEAD
-                Alternativa correta;
-                correta = Questao.verificarAlternativaCorreta();
-                Toast.makeText(ActivityQuestaoSelecionada.this, correta.getResposta() , Toast.LENGTH_LONG).show();
-                intencao = new Intent(ActivityQuestaoSelecionada.this, Resolucao.class);
-=======
-
                 Alternativa correta = Questao.verificarAlternativaCorreta();
                /* Toast.makeText(ActivityQuestaoSelecionada.this, correta.getResposta() , Toast.LENGTH_LONG).show();*/
                 intencao = new Intent(ActivityQuestaoSelecionada.this, ActivityResolucao.class);
->>>>>>> a08c34fad3c85bdd5892262a589a20bf60989653
+
                 String resolucao =  questao.get(indice).getResolucao();
                 intencao.putExtra("ActivityResolucao",resolucao);
                 startActivity(intencao);
-<<<<<<< HEAD
-=======
-
-                correta = Questao.verificarAlternativaCorreta();
-              //  Toast.makeText(ActivityQuestaoSelecionada.this, correta.getResposta() , Toast.LENGTH_LONG).show();
-
->>>>>>> a08c34fad3c85bdd5892262a589a20bf60989653
             }
         });
     }
