@@ -1,32 +1,28 @@
 package com.example.leonardoanselmo.appvestibular;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
+import android.widget.Button;
 
 /**
- * Created by Jackson Carvalho on 07/12/2015.
+ * Created by Jackson Carvalho on 09/12/2015.
  */
-public class Rendimento extends AppCompatActivity {
-    private ListView listView;
-    private String [] rendimento;
-    private  Intent intencao;
-
-    @SuppressLint("WrongViewCast")
+public class ActivityResolucao extends AppCompatActivity {
+    private Intent intencao;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.rendimento);
+        setContentView(R.layout.resolucao);
+        intencao = getIntent();
 
-        listView = (ListView) findViewById(R.id.textView3);
-}
+        intencao.getStringExtra("ActivityResolucao");
+
+
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -50,6 +46,10 @@ public class Rendimento extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 }
+
+
+
+
 
 
 

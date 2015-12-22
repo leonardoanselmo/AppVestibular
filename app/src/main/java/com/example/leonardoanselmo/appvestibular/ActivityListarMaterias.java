@@ -8,42 +8,41 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-
-import android.widget.Button;
 import android.widget.ListView;
 
 /**
- * Created by Jackson Carvalho on 07/12/2015.
+ * Created by Jackson Carvalho on 30/11/2015.
  */
-public class Tela_inicial extends AppCompatActivity {
-
+public class ActivityListarMaterias extends AppCompatActivity {
+    private ListView listView;
+    private Disciplina[] disciplinas;
+    private String[] nomes;
     private  Intent intencao;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.tela_inicial);
+        setContentView(R.layout.listarmaterias);
 
-       Button botao1=(Button) findViewById(R.id.button);
-        botao1.setOnClickListener(new View.OnClickListener() {
+        listView = (ListView) findViewById(R.id.listView2);
+        disciplinas =  Disciplina.listaDeNomes();
+        nomes = new String[12];
 
+        for (int i = 0; i < 12; i++) {
+            nomes[i] = disciplinas[i].getNome();
+        }
 
+        ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, nomes);
+        listView.setAdapter(adapter);
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onClick(View v) {
-                intencao = new Intent(Tela_inicial.this, ListarMaterias.class);
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                intencao = new Intent(ActivityListarMaterias.this, MainActivity.class);
+                intencao.putExtra("disciplinas", position);
                 startActivity(intencao);
             }
         });
-    Button boatao2=(Button) findViewById(R.id.button2);
-        boatao2.setOnClickListener(new View.OnClickListener(){
-
-            @Override
-            public void onClick(View v) {
-                intencao = new Intent(Tela_inicial.this, Rendimento.class);
-                startActivity(intencao);
-
-            }
-        });
-
     }
 
     @Override
@@ -68,8 +67,5 @@ public class Tela_inicial extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 }
-
-
-
 
 
