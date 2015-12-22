@@ -20,7 +20,7 @@ import static com.example.leonardoanselmo.appvestibular.Questao.*;
  */
 public class ActivityQuestaoSelecionada extends AppCompatActivity {
     private Alternativa[] alternativas;
-
+    private int indice;
     private List<Questao> questao;
     private Intent intencao;
     private List<Questao> questoes;
@@ -40,13 +40,13 @@ public class ActivityQuestaoSelecionada extends AppCompatActivity {
         Button resposta = (Button) findViewById(R.id.resposta);
 
         intencao = getIntent();
-        final int indice = intencao.getIntExtra("enunciado", 0);
+        indice = intencao.getIntExtra("enunciado", 0);
         questao = Questao.getLista();
         String enunciado = questao.get(indice).getEnuciado();
 
         textView.setText(String.valueOf(enunciado));
 
-        alternativas = Questao.getAlternativas();
+        alternativas = questao.get(indice).getAlternativas();
         String alternativa1 = alternativas[0].getResposta();
         String alternativa2 = alternativas[1].getResposta();
         String alternativa3 = alternativas[2].getResposta();
@@ -62,17 +62,13 @@ public class ActivityQuestaoSelecionada extends AppCompatActivity {
         resposta.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                Alternativa correta = Questao.verificarAlternativaCorreta();
-               /* Toast.makeText(ActivityQuestaoSelecionada.this, correta.getResposta() , Toast.LENGTH_LONG).show();*/
+                Alternativa correta;
+                correta = Questao.verificarAlternativaCorreta();
+                Toast.makeText(ActivityQuestaoSelecionada.this, correta.getResposta() , Toast.LENGTH_LONG).show();
                 intencao = new Intent(ActivityQuestaoSelecionada.this, Resolucao.class);
                 String resolucao =  questao.get(indice).getResolucao();
                 intencao.putExtra("Resolucao",resolucao);
                 startActivity(intencao);
-
-                correta = Questao.verificarAlternativaCorreta();
-                Toast.makeText(ActivityQuestaoSelecionada.this, correta.getResposta() , Toast.LENGTH_LONG).show();
-
             }
         });
     }
