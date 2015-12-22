@@ -26,7 +26,9 @@ public class ActivityRendimento extends AppCompatActivity {
         setContentView(R.layout.rendimento);
 
         listView = (ListView) findViewById(R.id.textView3);
-}
+
+
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
