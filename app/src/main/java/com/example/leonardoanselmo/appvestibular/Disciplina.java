@@ -84,5 +84,13 @@ public class Disciplina extends SugarRecord<Disciplina> {
         totaldequestoes = questoesCertas+questoesErradas;
        return rendimento=(questoesCertas/totaldequestoes)*100;
     }
+
+    public Questao getQuestao() {
+        return questao;
+    }
+
+    public void setQuestao(Questao questao) {
+        this.questao = questao;
+    }
 }
 

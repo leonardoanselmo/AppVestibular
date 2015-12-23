@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
         listView = (ListView) findViewById(R.id.listView);
         questoes = questao.listaDeQuestoes();
 
-        MeuAdapter adapter = new ArrayAdapter(this, questoes);
+        MeuAdapter adapter = new MeuAdapter(this, questoes);
 
         listView.setAdapter(adapter);
 

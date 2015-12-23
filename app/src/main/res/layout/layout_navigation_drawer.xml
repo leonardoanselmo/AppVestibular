@@ -14,4 +14,4 @@
         android:text="algo"
         android:textColor="@android:color/background_dark"
         android:textSize="21dp" />
-    </LinearLayout>
+</LinearLayout>

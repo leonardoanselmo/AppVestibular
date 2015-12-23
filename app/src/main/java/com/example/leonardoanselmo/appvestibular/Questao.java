@@ -56,16 +56,16 @@ public class Questao extends SugarRecord<Questao> {
     public static void adicionarQuestoes(){
         Questao questao = new Questao();
 
-        questao.setEnuciado("1-Para diminuir o acúmulo de lixo e o desperdício de materiais de valor econômico e, assim, reduzir " +
-                "a exploração de recursos naturais, adotou-se, " +
-                "em escala internacional, a política dos três erres: Redução, Reutilização e Reciclagem. Um exemplo de reciclagem é a" +
-                " utilização de:");
+        questao.setEnuciado("Um dos problemas ambientais vivenciados pela agricultura hoje em dia é a compactação do solo, devida " +
+                "ao intenso tráfego de máquinas cada vez mais pesadas, reduzindo a produtividade das culturas.\n" +
+                "Uma das formas de prevenir o problema de compactação do solo é substituir os pneus dos tratores por pneus mais:");
+
         alternativas = new Alternativa[5];
-        Alternativa alternativa1 = new Alternativa("A- garrafas de vidro retornáveis para cerveja ou refrigerante.",false);
-        Alternativa alternativa2 = new Alternativa("B- latas de alumínio como material para fabricação de lingotes.",true);
-        Alternativa alternativa3 = new Alternativa("C- sacos plásticos de supermercado como acondicionantes de lixo caseiro.",false);
-        Alternativa alternativa4 = new Alternativa("D- embalagens plásticas vazias e limpas para acondicionar outros alimentos.",false);
-        Alternativa alternativa5 = new Alternativa("E- garrafas PET recortadas em tiras para fabricação de cerdas de vassouras.",false);
+        Alternativa alternativa1 = new Alternativa("A-largos, reduzindo a pressão sobre o solo.",true);
+        Alternativa alternativa2 = new Alternativa("B-estreitos, reduzindo a pressão sobre o solo.",false);
+        Alternativa alternativa3 = new Alternativa("C-largos, aumentando a pressão sobre o solo.",false);
+        Alternativa alternativa4 = new Alternativa("D-estreitos, aumentando a pressão sobre o solo.",false);
+        Alternativa alternativa5 = new Alternativa("E-altos, reduzindo a pressão sobre o solo.",false);
         alternativas[0] = alternativa1;
         alternativas[1] = alternativa2;
         alternativas[2] = alternativa3;
@@ -79,12 +79,12 @@ public class Questao extends SugarRecord<Questao> {
         alternativa5.save();
 
         questao.setAlternativas(alternativas);
-        questao.setResolucao("As latas de alumínio podem ser submetidas ao processo inicial da formação do lingote de alumínio e,\n" +
-                " com isso ser reutilizada entrar em um novo ciclo (reciclagem) para a confecção de novos materiais de alumínio e \n" +
-                "não simplesmente ser material reutilizado como nas outras opções. preservando assim a matéria prima bruta e o \n" +
-                "meio ambiente.\n" +
+        questao.setResolucao("A pressão deve ser reduzida para prevenir o problema da compactação do solo. A pressão (P) é calculada " +
+                "pela razão entre a força normal aplicada (F) e a área de aplicação (A), P = FA. Sendo a alteração no tamanho dos pneus," +
+                " estes devem ser mais largos para que aumente a área de aplicação da força e reduza a pressão. A altura do pneu não está" +
+                " relacionada à pressão exercida." +
                 "RESPOSTA CORRETA:\n" +
-                "B ");
+                "A");
         questao.setStatus(0);
         questao.save();
     }
